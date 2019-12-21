@@ -16,6 +16,7 @@ const workersRouter=require('./src/routers/workersRouter')();
 const signupRouter=require('./src/routers/signupRouter')();
 const loginRouter=require('./src/routers/loginRouter')();
 
+const port=process.env.PORT||8080 ;
 
 app.use(express.static(path.join(__dirname,"/public")));
 
@@ -26,6 +27,6 @@ app.use('/login',loginRouter);
 mongoose.connect("mongodb+srv://ATHULBABUM:amalbabu@cluster0-7ktkb.mongodb.net/test?retryWrites=true&w=majority");
 
 
-app.listen(process.env.PORT|| 3000,()=>{
-    console.log("listening to port "+chalk.green('3000'));
-});
+app.listen(port,()=>{
+    console.log("listening to port "+port);
+})
